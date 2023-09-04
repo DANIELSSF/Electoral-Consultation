@@ -7,7 +7,7 @@ This is an electoral consultation project that leverages the latest web technolo
 To get started with this project, you should first clone it and install the necessary dependencies.
 
 ```bash
-git clone <REPOSITORY_URL>
+git clone https://github.com/DANIELSSF/Electoral-Consultation.git
 cd Electoral-Consultation
 yarn
 ```
