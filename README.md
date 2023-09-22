@@ -30,8 +30,9 @@ yarn
 Available Scripts
 In the project directory, you can run the following scripts:
 
-- Starts the application in development mode. Open http://localhost:3000 in your browser to see it. The page will automatically reload if you make code changes.
+- Starts the application in development mode. Open http://localhost:5173 in your browser to see it. The page will automatically reload if you make code changes and start json-server to simulate a database in other terminal.
 ```bash
+yarn json-server --watch ./src/db/db.json
 yarn dev
 ```
 
