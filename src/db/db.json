@@ -1,0 +1,60 @@
+{
+    "user-verify": [
+        {
+            "id": 1,
+            "firstName": "Daniel Santiago",
+            "lastName": "Silva Fonseca",
+            "cedula": "1002527958",
+            "rol": "jurado",
+            "table": "M1",
+            "ubication": "Laguito"
+        }
+    ],
+    "code-verification": [
+        {
+            "message": true
+        }
+    ],
+    "login": [
+        {
+            "id": 1,
+            "firstName": "Daniel Santiago",
+            "lastName": "Silva Fonseca",
+            "cedula": "1002527958",
+            "rol": "jurado",
+            "table": "M1",
+            "ubication": "Laguito",
+            "email": "daniel.santiago730@gmail.com",
+            "cellphone": "3184303817",
+            "votes": [
+                {
+                    "id": 1,
+                    "firstName": "Natalia",
+                    "lastName": "Prieto",
+                    "cedula": "1002527128",
+                    "rol": "votante",
+                    "table": "M1",
+                    "ubication": "Laguito"
+                },
+                {
+                    "id": 2,
+                    "firstName": "Andrea",
+                    "lastName": "Salazar",
+                    "cedula": "1002523128",
+                    "rol": "votante",
+                    "table": "M1",
+                    "ubication": "Laguito"
+                },
+                {
+                    "id": 3,
+                    "firstName": "Mario",
+                    "lastName": "Torres",
+                    "cedula": "1002727425",
+                    "rol": "votante",
+                    "table": "M1",
+                    "ubication": "Laguito"
+                }
+            ]
+        }
+    ]
+}

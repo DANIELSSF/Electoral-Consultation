@@ -2,6 +2,21 @@
 
 This is an electoral consultation project that leverages the latest web technologies to create a modern and efficient user experience.
 
+## Prerequisites
+
+Before you can start working with this project, you need to have Yarn installed on your system.
+
+### How to Install Yarn
+
+Yarn is a package manager for JavaScript and Node.js projects. To install Yarn, follow these steps:
+
+1. **For Windows**: Visit the [Yarn installation page](https://classic.yarnpkg.com/en/docs/install/#windows-stable) and download the installer for Windows. Run the installer and follow the installation instructions.
+  
+   ```bash
+   npm install -g yarn
+   yarn --version
+   ```
+
 ## Installation
 
 To get started with this project, you should first clone it and install the necessary dependencies.
