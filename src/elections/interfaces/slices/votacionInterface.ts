@@ -1,4 +1,4 @@
-import { IVerify } from '..';
+import { ITableInformation, IVerify } from '..';
 
 export interface IVotacion {
   status:
@@ -9,5 +9,5 @@ export interface IVotacion {
     | 'jurado';
   isLoading: boolean;
   errorMessage: undefined | string;
-  user: null | IVerify;
+  user: null | IVerify | ITableInformation;
 }

@@ -1,7 +1,31 @@
-import { AppBar, Toolbar, Grid, Typography } from '@mui/material';
+import { FC } from 'react';
+import { AppBar, Toolbar, Grid, Typography, Button } from '@mui/material';
 import { AccountMenu } from './AccountMenu';
 
-export const Navbar = () => {
+interface InitialProps {
+  status:
+    | 'authenticated'
+    | 'not-authenticated'
+    | 'jurado'
+    | 'votante'
+    | 'checking';
+
+  startFormLogin: Function;
+  startHome: Function;
+}
+
+export const Navbar: FC<InitialProps> = ({
+  status,
+  startFormLogin,
+  startHome,
+}) => {
+
+  const handleBackHome = () => {
+    if (status === 'authenticated') return;
+
+    startHome();
+  };
+
   return (
     <AppBar
       position="fixed"
@@ -14,14 +38,16 @@ export const Navbar = () => {
           justifyContent="start"
           alignItems="center"
         >
-          <Typography
-            variant="h5"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'flex', sm: 'flex' } }}
-          >
-            Elecciones Colombia 2023
-          </Typography>
+          <Button onClick={handleBackHome} color="inherit">
+            <Typography
+              variant="h5"
+              noWrap
+              component="div"
+              sx={{ display: { xs: 'flex', sm: 'flex' } }}
+            >
+              Elecciones Colombia 2023
+            </Typography>
+          </Button>
         </Grid>
 
         <Grid
@@ -30,7 +56,7 @@ export const Navbar = () => {
           justifyContent="end"
           alignItems="center"
         >
-          <AccountMenu />
+          <AccountMenu status={status} startFormLogin={startFormLogin} />
         </Grid>
       </Toolbar>
     </AppBar>

@@ -14,3 +14,6 @@ export * from './register-judge/VerifyCode';
 export * from './steps/StepsJudge';
 
 export * from './sweetalert/Toast';
+
+export * from './judge/UsersTable';
+export * from './judge/InfoJudge';

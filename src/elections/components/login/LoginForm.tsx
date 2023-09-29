@@ -16,13 +16,14 @@ export const LoginForm: FC = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<IFormInput>();
+  
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     await startLoginJudge(data);
   };
 
   return (
-    <Grid container width="80%" marginY="20px">
+    <Grid container width={{ md: '80%', sm: '90%', xs: '100%' }} marginY="20px">
       <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
         <Box>
           <Typography variant="body1">Correo</Typography>

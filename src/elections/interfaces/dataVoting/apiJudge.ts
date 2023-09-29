@@ -1,8 +1,5 @@
-export interface ITableInformation {
-  login: Login[];
-}
 
-export interface Login {
+export interface ITableInformation {
   id: number;
   firstName: string;
   lastName: string;
@@ -12,7 +9,7 @@ export interface Login {
   ubication: string;
   email: string;
   cellphone: string;
-  votes: UserVerify[];
+  votes?: UserVerify[];
 }
 
 interface UserVerify {

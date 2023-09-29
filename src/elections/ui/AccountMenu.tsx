@@ -1,4 +1,5 @@
-import * as React from 'react';
+import { useState, MouseEvent, FC } from 'react';
+
 import {
   Box,
   Menu,
@@ -6,17 +7,36 @@ import {
   ListItemIcon,
   IconButton,
   Tooltip,
+  Button,
+  Typography,
 } from '@mui/material';
 import { Login, Menu as MenuIcon } from '@mui/icons-material';
 
-export const AccountMenu = () => {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+interface InitialProps {
+  status:
+    | 'authenticated'
+    | 'not-authenticated'
+    | 'jurado'
+    | 'votante'
+    | 'checking';
+  startFormLogin: Function;
+}
+
+export const AccountMenu: FC<InitialProps> = ({ status, startFormLogin }) => {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+
+  const handleClick = (event: MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const authLogin = async () => {
+    if (status === 'authenticated') return;
+
+    await startFormLogin();
   };
   return (
     <>
@@ -69,15 +89,17 @@ export const AccountMenu = () => {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem>
-          <ListItemIcon>
-            <Login />
-          </ListItemIcon>
-          Iniciar Sesión
-        </MenuItem>
+        <Button onClick={authLogin} style={{ textDecoration: 'none' }}>
+          <MenuItem>
+            <ListItemIcon>
+              <Login />
+            </ListItemIcon>
+            <Typography color="#000">
+              {status === 'authenticated' ? 'Cerrar Sesión' : 'Iniciar Sesión'}
+            </Typography>
+          </MenuItem>
+        </Button>
       </Menu>
     </>
   );
 };
-
-

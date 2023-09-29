@@ -2,11 +2,11 @@ import { useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { ElectionPage } from '../elections/page/ElectionPage';
-import { RegisterJudgePage } from '../elections/page/RegisterJudgePage';
-
 import { useElection } from '../elections/hooks/useElection';
 import { Progress } from '../elections/components';
+import { RegisterJudgePage } from '../elections/page/RegisterJudgePage';
 import { LoginPage } from '../elections/page/login/LoginPage';
+import { JudgePage } from '../elections/page/judge/JudgePage';
 
 export const AppRoute = () => {
   const { startCheckStatus, isLoading, status } = useElection();
@@ -47,6 +47,15 @@ export const AppRoute = () => {
         <Routes>
           <Route path="/auth/login/*" element={<LoginPage />} />
           <Route path="/*" element={<Navigate to="/auth/login" />} />
+        </Routes>
+      );
+      break;
+
+      case 'authenticated':
+      routeElement = (
+        <Routes>
+          <Route path="/" element={<JudgePage />} />
+          <Route path="/*" element={<Navigate to="/" />} />
         </Routes>
       );
       break;

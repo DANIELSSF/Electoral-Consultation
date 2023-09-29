@@ -64,7 +64,6 @@ export const useElection = () => {
     }
   };
 
-  // Todo: terminar esto, agregar el insertar contraseña, hacer bd de login
   const startRegisterEmailPhone = async (email: string, cellphone: string) => {
     console.log(email, cellphone);
   };
@@ -82,15 +81,15 @@ export const useElection = () => {
   const startLoginJudge = async (data: { email: string; password: string }) => {
     dispatch(onLoading());
 
-    // try {
-    //   const { data } = await apiElections.get<ITableInformation[]>(
-    //     '/login'
-    //     //! body
-    //   );
+    try {
+      const { data } = await apiElections.get<ITableInformation[]>(
+        '/login'
+        //! body
+      );
 
-    //   console.log({ data });
-    //   dispatch(onLogin(data[0]));
-    // } catch (error) {}
+      dispatch(onLogin(data[0]));
+    } catch (error) {}
+
   };
 
   const startSetPassword = async (password: string) => {
@@ -110,6 +109,14 @@ export const useElection = () => {
     dispatch(onVisit());
   };
 
+  const startFormLogin = () => {
+    dispatch(onLogout());
+  };
+
+  const startHome = () => {
+    dispatch(onVisit());
+  };
+
   return {
     // Properties
     errorMessage,
@@ -124,5 +131,7 @@ export const useElection = () => {
     startSearchPollingTable,
     startSetPassword,
     startVerificationCode,
+    startFormLogin,
+    startHome
   };
 };
